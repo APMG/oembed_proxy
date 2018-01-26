@@ -1,5 +1,6 @@
 require 'bundler/setup'
 
+require 'pry'
 require 'webmock/rspec'
 
 require 'oembed_proxy'

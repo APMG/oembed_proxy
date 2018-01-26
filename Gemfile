@@ -10,5 +10,10 @@ group :test do
   gem 'webmock'
 end
 
+group :development, :test do
+  gem 'pry'
+  gem 'pry-byebug'
+end
+
 # Specify your gem's dependencies in oembed_proxy.gemspec
 gemspec
