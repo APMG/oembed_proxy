@@ -1,5 +1,10 @@
 require 'bundler/setup'
+
+require 'webmock/rspec'
+
 require 'oembed_proxy'
+
+require 'oembed_proxy/provider_contract_shared'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
