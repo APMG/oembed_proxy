@@ -5,9 +5,12 @@ require 'webmock/rspec'
 
 require 'oembed_proxy'
 
+require 'support/fixture_loader'
 require 'oembed_proxy/provider_contract_shared'
 
 RSpec.configure do |config|
+  config.include FixtureLoader
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = '.rspec_status'
 
