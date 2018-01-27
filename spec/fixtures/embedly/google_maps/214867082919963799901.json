@@ -1,0 +1,14 @@
+{
+  "provider_url": "http://google.com/maps",
+  "description": "Tornado Simulation Tornado Warning Track",
+  "title": "Tornado Simulation Tornado Warning Track",
+  "thumbnail_width": 504,
+  "height": 450,
+  "width": 600,
+  "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fembed%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&url=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fviewer%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&image=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fthumbnail%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&key=947137f52db64271b6e122909bac3123&type=text%2Fhtml&schema=google\" width=\"600\" height=\"450\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>",
+  "version": "1.0",
+  "provider_name": "Google Maps",
+  "thumbnail_url": "https://www.google.com/maps/d/thumbnail?mid=11YCN4-pcX1wLjPeT81JQm1-QbP8&hl=en_US",
+  "type": "rich",
+  "thumbnail_height": 520
+}
