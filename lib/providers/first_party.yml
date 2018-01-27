@@ -1,0 +1,91 @@
+youtube:
+  endpoint: "http://www.youtube.com/oembed"
+  pattern_list: ["#https?://(www\\.)?youtube\\.com/watch.*#i", "#https?://youtu.be/(.+)#i"]
+
+bliptv:
+  endpoint: "http://blip.tv/oembed/"
+  pattern_list: ["#http://blip.tv/(.+)#i"]
+
+vimeo:
+  endpoint: "http://vimeo.com/api/oembed.json"
+  pattern_list: ["#https?://(www\\.)?vimeo\\.com/.*#i"]
+
+dailymotion:
+  endpoint: "http://www.dailymotion.com/services/oembed"
+  pattern_list: ["#https?://(www\\.)?dailymotion\\.com/.*#i", "#http://dai.ly/(.+)#i"]
+
+flickr:
+  endpoint: "http://www.flickr.com/services/oembed/"
+  pattern_list: ["#https?://(www\\.)?flickr\\.com/.*#i", "#http://flic.kr/(.+)#i"]
+
+smugmug:
+  endpoint: "http://api.smugmug.com/services/oembed/"
+  pattern_list: ["#https?://(.+\\.)?smugmug\\.com/.*#i"]
+
+hulu:
+  endpoint: "http://www.hulu.com/api/oembed.json"
+  pattern_list: ["#https?://(www\\.)?hulu\\.com/watch/.*#i"]
+
+viddler:
+  endpoint: "http://lab.viddler.com/services/oembed/"
+  pattern_list: ["#https?://(www\\.)?viddler\\.com/.*#i"]
+
+qik:
+  endpoint: "http://qik.com/api/oembed.json"
+  pattern_list: ["#http://qik.com/(.+)#i"]
+
+revision3:
+  endpoint: "http://revision3.com/api/oembed/"
+  pattern_list: ["#http://revision3.com/(.+)#i"]
+
+photobucket:
+  endpoint: "http://photobucket.com/oembed"
+  pattern_list: ["#http://i(.+).photobucket.com/albums/(.+)#i", "#http://gi(.+).photobucket.com/groups/(.+)#i"]
+
+mixlr:
+  endpoint: "http://mixlr.com/services/oembed/"
+  pattern_list: ["#https://mixlr.com/(.+)#i"]
+
+scribd:
+  endpoint: "https://www.scribd.com/services/oembed"
+  pattern_list: ["#https?://(www\\.)?scribd\\.com/.*#i"]
+
+wordpresstv:
+  endpoint: "http://wordpress.tv/oembed/"
+  pattern_list: ["#http://wordpress.tv/(.+)#i"]
+
+polldaddy:
+  endpoint: "https://polldaddy.com/oembed/"
+  pattern_list: ["#https?://(.+\\.)?polldaddy\\.com/.*#i"]
+
+funnyordie:
+  endpoint: "http://www.funnyordie.com/oembed"
+  pattern_list: ["#https?://(www\\.)?funnyordie\\.com/videos/.*#i"]
+
+twitter:
+  endpoint: "https://api.twitter.com/1/statuses/oembed.json"
+  pattern_list: ["#https?://(www\\.)?twitter\\.com/.+?/status(es)?/.*#i"]
+
+soundcloud:
+  endpoint: "http://soundcloud.com/oembed?format=json"
+  pattern_list: ["#https?://(www\\.)?soundcloud\\.com/.*#i"]
+
+slideshare:
+  endpoint: "http://www.slideshare.net/api/oembed/2"
+  pattern_list: ["#https?://(www\\.)?slideshare\\.net/*#"]
+
+instagram:
+  endpoint: "https://api.instagram.com/oembed?beta=true"
+  pattern_list: ["#https?://(www\\.)?instagr(\\.am|am\\.com)/p/.*#i"]
+
+spotify:
+  endpoint: "https://embed.spotify.com/oembed/"
+  pattern_list: ["#https?://(open|play)\\.spotify\\.com/.*#i"]
+
+audio-api:
+  endpoint: "http://audio-api.publicradio.org/oembed/v1/"
+  pattern_list: ["#apm[_-]audio:/(.+)#i"]
+
+documentcloud:
+  endpoint: "https://www.documentcloud.org/api/oembed.json"
+  pattern_list: ["#https?://www\\.documentcloud\\.org/documents?/.*#i"]
