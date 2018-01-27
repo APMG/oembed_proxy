@@ -1,0 +1,13 @@
+{
+  "provider_url": "https://www.spotify.com",
+  "version": "1.0",
+  "thumbnail_width": 300,
+  "height": 380,
+  "thumbnail_height": 300,
+  "title": "Land Speed Record",
+  "width": 300,
+  "thumbnail_url": "https://i.scdn.co/image/bd0164310f51645e2df1f33281b194aaec539d13",
+  "provider_name": "Spotify",
+  "type": "rich",
+  "html": "<iframe src=\"https://open.spotify.com/embed/album/0R7CaOFFuPynpABahVNaMs\" width=\"300\" height=\"380\" frameborder=\"0\" allowtransparency=\"true\"></iframe>"
+}

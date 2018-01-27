@@ -1,0 +1,10 @@
+{
+  "type": "rich",
+  "version": "1.0",
+  "provider_name": "DocumentCloud",
+  "provider_url": "https://www.documentcloud.org",
+  "cache_age": 300,
+  "height": 906,
+  "width": 700,
+  "html": "<div class=\"DC-embed DC-embed-document DV-container\"> <div style=\"position:relative;padding-bottom:129.42857142857142%;height:0;overflow:hidden;max-width:100%;\"> <iframe src=\"//www.documentcloud.org/documents/3901810-07242017-Minn-BCA-search-warrant-for-area.html?embed=true&amp;responsive=false&amp;sidebar=false\" title=\"07242017 Minn BCA search warrant for area (Hosted by DocumentCloud)\" sandbox=\"allow-scripts allow-same-origin allow-popups allow-forms\" frameborder=\"0\" style=\"position:absolute;top:0;left:0;width:100%;height:100%;border:1px solid #aaa;border-bottom:0;box-sizing:border-box;\"></iframe> </div> </div>"
+}

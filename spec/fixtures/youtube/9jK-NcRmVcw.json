@@ -1,0 +1,15 @@
+{
+  "provider_name": "YouTube",
+  "version": "1.0",
+  "height": 344,
+  "author_url": "https://www.youtube.com/user/EuropeVEVO",
+  "provider_url": "https://www.youtube.com/",
+  "thumbnail_height": 360,
+  "width": 459,
+  "html": "<iframe width=\"459\" height=\"344\" src=\"https://www.youtube.com/embed/9jK-NcRmVcw?feature=oembed\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>",
+  "type": "video",
+  "thumbnail_width": 480,
+  "author_name": "EuropeVEVO",
+  "title": "Europe - The Final Countdown (Official Video)",
+  "thumbnail_url": "https://i.ytimg.com/vi/9jK-NcRmVcw/hqdefault.jpg"
+}
