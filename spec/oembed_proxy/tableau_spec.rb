@@ -37,31 +37,35 @@ RSpec.describe OembedProxy::Tableau do
   describe '#get_data' do
     # Note the \1 in the 5th line of the regex. We want to make sure it
     # matches the ID captured in line 1 exactly.
-    let(:participation_rate_regex) { <<~'PART_RATE' }
-      <div id="(laborforceparticipationratebyagemn-sheet1-\d{10})"></div>
-      <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-      <script type="text/javascript">
-        \(function\(\) {
-          var container = document.getElementById\('\1'\);
-          var url = 'https://public.tableau.com/views/LaborForceParticipationRateByAgeMN/Sheet1\?:embed=y&:display_count=yes';
-          var options = {};
-          var viz = new tableau.Viz\(container, url, options\);
-        }\)\(\);
-      </script>
-    PART_RATE
+    let(:participation_rate_regex) do
+      <<~'PART_RATE'
+        <div id="(laborforceparticipationratebyagemn-sheet1-\d{10})"></div>
+        <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        <script type="text/javascript">
+          \(function\(\) {
+            var container = document.getElementById\('\1'\);
+            var url = 'https://public.tableau.com/views/LaborForceParticipationRateByAgeMN/Sheet1\?:embed=y&:display_count=yes';
+            var options = {};
+            var viz = new tableau.Viz\(container, url, options\);
+          }\)\(\);
+        </script>
+      PART_RATE
+    end
 
-    let(:poverty_measure_regex) { <<~'POVERTY_MEASURE' }
-      <div id="(supplementalpovertymeasureimpactofprogramsandexpenses2016-sheet1-\d{10})"></div>
-      <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
-      <script type="text/javascript">
-        \(function\(\) {
-          var container = document.getElementById\('\1'\);
-          var url = 'https://public.tableau.com/views/SupplementalPovertyMeasureImpactofProgramsandExpenses2016/Sheet1\?:embed=y&:display_count=yes';
-          var options = {};
-          var viz = new tableau.Viz\(container, url, options\);
-        }\)\(\);
-      </script>
-    POVERTY_MEASURE
+    let(:poverty_measure_regex) do
+      <<~'POVERTY_MEASURE'
+        <div id="(supplementalpovertymeasureimpactofprogramsandexpenses2016-sheet1-\d{10})"></div>
+        <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        <script type="text/javascript">
+          \(function\(\) {
+            var container = document.getElementById\('\1'\);
+            var url = 'https://public.tableau.com/views/SupplementalPovertyMeasureImpactofProgramsandExpenses2016/Sheet1\?:embed=y&:display_count=yes';
+            var options = {};
+            var viz = new tableau.Viz\(container, url, options\);
+          }\)\(\);
+        </script>
+      POVERTY_MEASURE
+    end
 
     it 'creates an oembed for a simple Tableau URL' do
       dc = OembedProxy::Tableau.new

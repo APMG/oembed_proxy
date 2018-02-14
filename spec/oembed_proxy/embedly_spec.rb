@@ -7,15 +7,15 @@ RSpec.describe OembedProxy::Embedly do
   let(:klass) { described_class.new(api_key) }
 
   before :each do
-    stub_request(:get, "https://api.embed.ly/1/oembed?format=json&key=1234567&url=https://maps.google.com/maps/ms?msid=214867082919963799901.0004bf28aee35e475fe57%26msa=0").
-      to_return(status: 200, body: fixture('embedly/google_maps/214867082919963799901.json'), headers: {})
+    stub_request(:get, 'https://api.embed.ly/1/oembed?format=json&key=1234567&url=https://maps.google.com/maps/ms?msid=214867082919963799901.0004bf28aee35e475fe57%26msa=0')
+      .to_return(status: 200, body: fixture('embedly/google_maps/214867082919963799901.json'), headers: {})
   end
 
   it_behaves_like 'provider standard' do
     let(:handled_url) { 'https://foursquare.com/v/minnesota-public-radio--american-public-media/4ae5ae75f964a5206aa121e3' }
     before :each do
-      stub_request(:get, "https://api.embed.ly/1/oembed?format=json&key=1234567&url=https://foursquare.com/v/minnesota-public-radio--american-public-media/4ae5ae75f964a5206aa121e3").
-        to_return(status: 200, body: fixture('embedly/foursquare/mpr.json'), headers: {})
+      stub_request(:get, 'https://api.embed.ly/1/oembed?format=json&key=1234567&url=https://foursquare.com/v/minnesota-public-radio--american-public-media/4ae5ae75f964a5206aa121e3')
+        .to_return(status: 200, body: fixture('embedly/foursquare/mpr.json'), headers: {})
     end
   end
 

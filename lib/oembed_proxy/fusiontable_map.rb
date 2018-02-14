@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Google Apps Fusiontable Map Fauxembeds
   class FusiontableMap
     FUSIONTABLE_REGEX = %r{^https://www\.google\.com/fusiontables(.*)$}
 

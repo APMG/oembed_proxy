@@ -6,16 +6,16 @@ RSpec.describe OembedProxy::FirstParty do
   let(:klass) { described_class.new }
 
   before :each do
-    stub_request(:get, "http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=9jK-NcRmVcw").
-      to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw.json'), headers: {})
-    stub_request(:get, "http://www.youtube.com/oembed?format=json&maxheight=30&maxwidth=20&url=https://www.youtube.com/watch?v=9jK-NcRmVcw").
-      to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw-30x30.json'), headers: {})
-    stub_request(:get, "https://embed.spotify.com/oembed/?format=json&url=https://open.spotify.com/album/0R7CaOFFuPynpABahVNaMs").
-      to_return(status: 200, body: fixture('spotify/album-0R7CaOFFuPynpABahVNaMs.json'), headers: {})
-    stub_request(:get, "https://api.instagram.com/oembed?beta=true&format=json&url=http://instagram.com/p/viyEC5IZr4/").
-      to_return(status: 200, body: fixture('instagram/viyEC5IZr4.json'), headers: {})
-    stub_request(:get, "https://www.documentcloud.org/api/oembed.json?format=json&url=https://www.documentcloud.org/documents/3901810-07242017-Minn-BCA-search-warrant-for-area.html").
-      to_return(status: 200, body: fixture('documentcloud/3901810-07242017-Minn-BCA-search-warrant-for-area.json'), headers: {})
+    stub_request(:get, 'http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
+      .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw.json'), headers: {})
+    stub_request(:get, 'http://www.youtube.com/oembed?format=json&maxheight=30&maxwidth=20&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
+      .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw-30x30.json'), headers: {})
+    stub_request(:get, 'https://embed.spotify.com/oembed/?format=json&url=https://open.spotify.com/album/0R7CaOFFuPynpABahVNaMs')
+      .to_return(status: 200, body: fixture('spotify/album-0R7CaOFFuPynpABahVNaMs.json'), headers: {})
+    stub_request(:get, 'https://api.instagram.com/oembed?beta=true&format=json&url=http://instagram.com/p/viyEC5IZr4/')
+      .to_return(status: 200, body: fixture('instagram/viyEC5IZr4.json'), headers: {})
+    stub_request(:get, 'https://www.documentcloud.org/api/oembed.json?format=json&url=https://www.documentcloud.org/documents/3901810-07242017-Minn-BCA-search-warrant-for-area.html')
+      .to_return(status: 200, body: fixture('documentcloud/3901810-07242017-Minn-BCA-search-warrant-for-area.json'), headers: {})
   end
 
   it_behaves_like 'provider standard' do
@@ -155,7 +155,7 @@ RSpec.describe OembedProxy::FirstParty do
         'height' => 906,
         'provider_name' => 'DocumentCloud',
         'provider_url' => 'https://www.documentcloud.org',
-        'cache_age' => 300
+        'cache_age' => 300,
       }
       expect(values).to eql(expected_hash)
     end

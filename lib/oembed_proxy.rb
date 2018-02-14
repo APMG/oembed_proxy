@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/version'
 
 # Gem namespace

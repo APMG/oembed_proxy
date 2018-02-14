@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module OembedProxy
   # A couple of things pulled in from ActiveSupport, but using refinements
   # instead of monkeypatching.
   module InactiveSupport
     refine String do
       def parameterize(sep = '-')
-        parameterized_string = self.dup.downcase
+        parameterized_string = dup.downcase
         # Turn unwanted chars into the separator
         parameterized_string.gsub!(/[^a-z0-9\-_]+/, sep)
         unless sep.nil? || sep.empty?

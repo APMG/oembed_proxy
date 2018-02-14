@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Google Spreadsheet Fauxembed
   class GoogleSpreadsheet
     GOOGLE_SPREADSHEET_REGEX = %r{https://docs\.google\.com/spreadsheet(.*)}
 

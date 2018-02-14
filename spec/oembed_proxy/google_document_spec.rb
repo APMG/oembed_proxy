@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/google_document'
 
 RSpec.describe OembedProxy::GoogleDocument do

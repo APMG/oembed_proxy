@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require 'cgi'
 
@@ -5,6 +7,7 @@ require 'oembed_proxy/utility'
 require 'oembed_proxy/oembed_exception'
 
 module OembedProxy
+  # Handles all sites with officially supported oEmbed providers
   class FirstParty
     USER_AGENT = 'Ruby oEmbed Proxy'
 
@@ -30,10 +33,7 @@ module OembedProxy
       return nil if endpoint.nil?
 
       uri = URI(endpoint)
-      new_params = {
-        url: url,
-        format: 'json'
-      }
+      new_params = { url: url, format: 'json' }
       new_params.merge! other_params
       # Merge in existing params.
       new_params.merge! CGI.parse(uri.query) if uri.query
@@ -44,42 +44,41 @@ module OembedProxy
 
     private
 
-    def fetch(uri, times_recursed: 0)
-      req = Net::HTTP::Get.new(uri)
-      req['User-Agent'] = USER_AGENT
-      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: (uri.scheme == 'https')) do |http|
-        http.request(req)
-      end
+    ERROR_CLASS_MAPPING = {
+      Net::HTTPBadRequest => '400 Bad Request',
+      Net::HTTPUnauthorized => '401 Unauthorized',
+      Net::HTTPForbidden => '403 Forbidden',
+      Net::HTTPNotFound => '404 Not Found',
+      Net::HTTPInternalServerError => '500 Internal Server Error',
+      Net::HTTPNotImplemented => '501 Not Implemented',
+      Net::HTTPServiceUnavailable => '503 Service Unavailable',
+    }.freeze
 
-      # TODO: This doesn't follow redirects.
+    MAX_REDIRECTS = 10
+
+    def fetch(uri, times_recursed: 0) # rubocop:disable Metrics/MethodLength
+      raise OembedException, '500 Internal Server Error' if times_recursed > MAX_REDIRECTS
+
+      res = request_builder(uri)
 
       case res
       when Net::HTTPSuccess
-        begin
-          return JSON[res.body]
-        rescue StandardError
-          # Invalid JSON
-          return nil
-        end
+        JSON[res.body]
       when Net::HTTPMovedPermanently, Net::HTTPFound
-        raise OembedException, '500 Internal Server Error' if times_recursed > 10
         fetch(URI(res['location']), times_recursed: (times_recursed + 1))
-      when Net::HTTPBadRequest
-        raise OembedException, '400 Bad Request'
-      when Net::HTTPUnauthorized
-        raise OembedException, '401 Unauthorized'
-      when Net::HTTPForbidden
-        raise OembedException, '403 Forbidden'
-      when Net::HTTPNotFound
-        raise OembedException, '404 Not Found'
-      when Net::HTTPInternalServerError
-        raise OembedException, '500 Internal Server Error'
-      when Net::HTTPNotImplemented
-        raise OembedException, '501 Not Implemented'
-      when Net::HTTPServiceUnavailable
-        raise OembedException, '503 Service Unavailable'
       else
-        raise OembedException, 'Unknown response: ' + res.class.to_s
+        raise OembedException, (ERROR_CLASS_MAPPING[res.class] || "Unknown response: #{res.class}")
+      end
+    rescue JSON::ParserError
+      return nil
+    end
+
+    def request_builder(uri)
+      req = Net::HTTP::Get.new(uri)
+      req['User-Agent'] = USER_AGENT
+
+      Net::HTTP.start(uri.hostname, uri.port, use_ssl: (uri.scheme == 'https')) do |http|
+        http.request(req)
       end
     end
 

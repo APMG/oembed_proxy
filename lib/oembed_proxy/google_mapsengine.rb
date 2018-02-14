@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Google Maps Engine Fauxembed
   class GoogleMapsengine
     MAPSENGINE_REGEXES = [
       %r{https://mapsengine\.google\.com/map/(?:edit|view)\?mid=(.*)},
-      %r{https://www\.google\.com/maps/d/edit\?mid=(.*)}
+      %r{https://www\.google\.com/maps/d/edit\?mid=(.*)},
     ].freeze
 
     def handles_url?(url)
@@ -12,20 +15,15 @@ module OembedProxy
     def get_data(url, _other_params = {})
       return nil unless handles_url? url
 
-      oembed = {}
-
-      oembed['type'] = 'rich'
-      oembed['version'] = '1.0'
-
-      oembed['provider_name'] = 'Google Maps Engine'
-      oembed['provider_url'] = 'https://mapsengine.google.com/'
-
-      mapsengine_id = url.match(get_matching_regex(url))[1]
-      oembed['html'] = "<iframe class=\"google-map\" width=\"640\" height=\"480\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://mapsengine.google.com/map/embed?mid=#{mapsengine_id}\"></iframe>"
-      oembed['width'] = 500
-      oembed['height'] = 500
-
-      oembed
+      {
+        'type' => 'rich',
+        'version' => '1.0',
+        'provider_name' => 'Google Maps Engine',
+        'provider_url' => 'https://mapsengine.google.com/',
+        'html' => "<iframe class=\"google-map\" width=\"640\" height=\"480\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\" src=\"https://mapsengine.google.com/map/embed?mid=#{url.match(get_matching_regex(url))[1]}\"></iframe>",
+        'width' => 500,
+        'height' => 500,
+      }
     end
 
     private

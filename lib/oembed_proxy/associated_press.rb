@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Associated Press Interactives Fauxembed
   class AssociatedPress
     AP_REGEX = %r{http:\/\/(hosted.ap.org\/interactives|interactives.ap.org)\/.*}
 

@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Google Docs Fauxembed
   class GoogleDocument
     GOOGLE_DOCUMENT_REGEX = %r{https://docs\.google\.com/document(.*)}
 

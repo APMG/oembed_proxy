@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/inactive_support'
 
 module OembedProxy
+  # Tableau Fauxembed
   class Tableau
     using InactiveSupport
 
@@ -10,7 +13,7 @@ module OembedProxy
       !TABLEAU_REGEX.match(url).nil?
     end
 
-    def get_data(url, _other_params = {})
+    def get_data(url, _other_params = {}) # rubocop:disable Metrics/MethodLength
       return nil unless handles_url? url
 
       chart_id = url.match(TABLEAU_REGEX)[1]
@@ -41,7 +44,7 @@ module OembedProxy
     # Make a unique div_id by slapping a random 10-digit number on the end
     def self.build_div_id(chart_id)
       chart_slug = chart_id.parameterize
-      format('%s-%010d', chart_slug, rand(1_000_000_000))
+      format('%<slug>s-%<rand>010d', slug: chart_slug, rand: rand(1_000_000_000))
     end
   end
 end

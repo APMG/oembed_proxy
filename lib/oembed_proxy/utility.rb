@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 module OembedProxy
-  class Utility
+  # Utility methods
+  module Utility
     def self.clean_pattern(pattern)
       if pattern.strip =~ /^#.*#i$/
         pattern.strip.slice(1..-3)

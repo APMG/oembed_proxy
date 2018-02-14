@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/associated_press'
 
 RSpec.describe OembedProxy::AssociatedPress do

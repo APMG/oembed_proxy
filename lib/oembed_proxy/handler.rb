@@ -1,4 +1,7 @@
+# frozen_string_literal: true
+
 module OembedProxy
+  # Generic composing handler
   class Handler
     def initialize(providers = [])
       @registered_providers = providers

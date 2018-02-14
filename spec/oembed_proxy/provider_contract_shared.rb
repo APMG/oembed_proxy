@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'provider standard' do
   # klass is passed by the calling spec.
 

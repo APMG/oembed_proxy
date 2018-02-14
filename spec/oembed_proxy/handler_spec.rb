@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/handler'
 
 RSpec.describe OembedProxy::Handler do

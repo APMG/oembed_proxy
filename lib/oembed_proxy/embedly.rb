@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 require 'oembed_proxy/first_party'
 require 'oembed_proxy/utility'
 
 module OembedProxy
+  # Embedly provider
   class Embedly < FirstParty
-    EMBEDLY_URL = 'https://api.embed.ly/1/oembed'.freeze
+    EMBEDLY_URL = 'https://api.embed.ly/1/oembed'
 
     def initialize(embedly_key)
       # Import the expected embed.ly providers.
