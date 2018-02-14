@@ -7,14 +7,14 @@ module OembedProxy
     TABLEAU_REGEX = %r{\Ahttps://public\.tableau\.com/(?:profile/[^/]+/vizhome|views)/([^?]+)}
 
     def handles_url?(url)
-      TABLEAU_REGEX.match? url
+      !TABLEAU_REGEX.match(url).nil?
     end
 
     def get_data(url, _other_params = {})
       return nil unless handles_url? url
 
       chart_id = url.match(TABLEAU_REGEX)[1]
-      div_id = Tableau.build_div_id(chart_id)
+      div_id = self.class.build_div_id(chart_id)
 
       {
         'type' => 'rich',
