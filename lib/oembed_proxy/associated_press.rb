@@ -3,7 +3,7 @@
 module OembedProxy
   # Associated Press Interactives Fauxembed
   class AssociatedPress
-    AP_REGEX = %r{http:\/\/(hosted.ap.org\/interactives|interactives.ap.org)\/.*}
+    AP_REGEX = %r{\Ahttps?:\/\/(hosted.ap.org\/interactives|interactives.ap.org)\/.*}
 
     def handles_url?(url)
       !(url =~ AP_REGEX).nil?

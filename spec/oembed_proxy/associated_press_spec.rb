@@ -15,6 +15,12 @@ RSpec.describe OembedProxy::AssociatedPress do
     expect(result).to eql(true)
   end
 
+  it '.handles_url? returns true for Associated Press https urls' do
+    dc = described_class.new
+    result = dc.handles_url? 'https://hosted.ap.org/interactives/2014/ebola-virus/index.html'
+    expect(result).to eql(true)
+  end
+
   it '.get_data returns valid Associated Press oembed' do
     url = 'http://hosted.ap.org/interactives/2014/ebola-virus/index.html'
 
