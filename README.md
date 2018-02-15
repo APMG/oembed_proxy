@@ -85,7 +85,7 @@ handler.register OembedProxy::FirstParty.new
 handler.register OembedProxy::AssociatedPress.new
 ```
 
-Once providers have been registered, the `#handles_url?` and `#get_data` methods will work on the composition of the registered providers.
+Once providers have been registered, calling `#handles_url?` and `#get_data`  on the handler will operate on the composition of the registered providers.
 
 ### Implementing your own providers
 
