@@ -2,6 +2,8 @@
 
 require 'yaml'
 require 'cgi'
+require 'net/http'
+require 'json'
 
 require 'oembed_proxy/utility'
 require 'oembed_proxy/oembed_exception'
