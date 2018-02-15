@@ -4,8 +4,8 @@ module OembedProxy
   # Google Maps Engine Fauxembed
   class GoogleMapsengine
     MAPSENGINE_REGEXES = [
-      %r{https://mapsengine\.google\.com/map/(?:edit|view)\?mid=(.*)},
-      %r{https://www\.google\.com/maps/d/edit\?mid=(.*)},
+      %r{\Ahttps://mapsengine\.google\.com/map/(?:edit|view)\?mid=(.+)},
+      %r{\Ahttps://www\.google\.com/maps/d/edit\?mid=(.+)},
     ].freeze
 
     def handles_url?(url)
