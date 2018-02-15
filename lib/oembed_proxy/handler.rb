@@ -3,7 +3,7 @@
 module OembedProxy
   # Generic composing handler
   class Handler
-    def initialize(providers = [])
+    def initialize(*providers)
       @registered_providers = providers
     end
 
