@@ -6,7 +6,7 @@ module OembedProxy
     AP_REGEX = %r{\Ahttps?:\/\/(hosted.ap.org\/interactives|interactives.ap.org)\/}
 
     def handles_url?(url)
-      !(url =~ AP_REGEX).nil?
+      !AP_REGEX.match(url).nil?
     end
 
     def get_data(url, _other_params = {})
