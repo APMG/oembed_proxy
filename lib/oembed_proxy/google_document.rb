@@ -3,7 +3,7 @@
 module OembedProxy
   # Google Docs Fauxembed
   class GoogleDocument
-    GOOGLE_DOCUMENT_REGEX = %r{https://docs\.google\.com/document(.*)}
+    GOOGLE_DOCUMENT_REGEX = %r{\Ahttps://docs\.google\.com/document.+}
 
     def handles_url?(url)
       !(url =~ GOOGLE_DOCUMENT_REGEX).nil?

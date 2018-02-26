@@ -3,7 +3,7 @@
 module OembedProxy
   # Google Apps Fusiontable Map Fauxembeds
   class FusiontableMap
-    FUSIONTABLE_REGEX = %r{^https://www\.google\.com/fusiontables(.*)$}
+    FUSIONTABLE_REGEX = %r{\Ahttps://www\.google\.com/fusiontables.+}
 
     def handles_url?(url)
       !(url =~ FUSIONTABLE_REGEX).nil?
