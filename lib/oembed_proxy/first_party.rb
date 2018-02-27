@@ -17,7 +17,7 @@ module OembedProxy
       # Import the expected first party providers.
       @pattern_hash = {}
 
-      yaml_hash = YAML.load_file('lib/providers/first_party.yml')
+      yaml_hash = YAML.load_file(File.expand_path('../../providers/first_party.yml', __FILE__))
       yaml_hash.each_value do |hsh|
         hsh['pattern_list'].each do |pattern|
           regex = Utility.clean_pattern(pattern)
