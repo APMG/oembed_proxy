@@ -2,7 +2,13 @@
 
 ## [master]
 
-[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...HEAD
+[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.1...HEAD
+
+* Your change here!
+
+## [`0.1.1`] (2018-02-27)
+
+[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...v0.1.1
 
 * Fix file references for first party and embedly providers.
 
