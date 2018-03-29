@@ -4,11 +4,11 @@
 
 [master]: https://github.com/APMG/oembed_proxy/compare/v0.1.1...HEAD
 
-* Your change here!
+* Add support for Radio Public by adding it to the embed.ly providers list.
 
 ## [`0.1.1`] (2018-02-27)
 
-[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...v0.1.1
+[`0.1.1`]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...v0.1.1
 
 * Fix file references for first party and embedly providers.
 
