@@ -1,5 +1,9 @@
 # oEmbed Proxy Changelog
 
+[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.1...HEAD
+
+* Your change here!
+
 ## [`0.1.2`] (2018-03-29)
 
 [`0.1.2`]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...v0.1.2
