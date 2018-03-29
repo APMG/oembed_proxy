@@ -13,7 +13,7 @@ module OembedProxy
       @pattern_hash = {}
       @embedly_key = embedly_key
 
-      File.open(File.expand_path('../../providers/embedly_patterns.def', __FILE__), 'r') do |f|
+      File.open(File.expand_path('../providers/embedly_patterns.def', __dir__), 'r') do |f|
         f.each do |line|
           regex = Utility.clean_pattern(line)
           @pattern_hash[regex] = EMBEDLY_URL

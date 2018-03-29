@@ -17,7 +17,7 @@ module OembedProxy
       # Import the expected first party providers.
       @pattern_hash = {}
 
-      yaml_hash = YAML.load_file(File.expand_path('../../providers/first_party.yml', __FILE__))
+      yaml_hash = YAML.load_file(File.expand_path('../providers/first_party.yml', __dir__))
       yaml_hash.each_value do |hsh|
         hsh['pattern_list'].each do |pattern|
           regex = Utility.clean_pattern(pattern)
@@ -72,7 +72,7 @@ module OembedProxy
         raise OembedException, (ERROR_CLASS_MAPPING[res.class] || "Unknown response: #{res.class}")
       end
     rescue JSON::ParserError
-      return nil
+      return nil # rubocop:disable Style/RedundantReturn
     end
 
     def request_builder(uri)
