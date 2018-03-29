@@ -1,8 +1,8 @@
 # oEmbed Proxy Changelog
 
-## [master]
+## [`0.1.2`] (2018-03-29)
 
-[master]: https://github.com/APMG/oembed_proxy/compare/v0.1.1...HEAD
+[`0.1.2`]: https://github.com/APMG/oembed_proxy/compare/v0.1.0...v0.1.2
 
 * Add support for Radio Public by adding it to the embed.ly providers list.
 
