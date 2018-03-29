@@ -89,7 +89,7 @@ Once providers have been registered, calling `#handles_url?` and `#get_data`  on
 
 ### Using existing embed.ly providers
 
-Embed supports more than 400 content providers. Be sure to check [embed.ly](http://embed.ly/providers) prior to implementing your own custom provider. If your desired provider is already supported, simply add its URL to the bottom of the existing list `/lib/providers/embedly_patterns.def`.
+[Embed.ly](http://embed.ly/) supports more than 400 content providers. Be sure to check the [embed.ly providers list](http://embed.ly/providers) prior to implementing your own custom provider. If your desired provider is already supported, simply add its URL to the bottom of the existing list `/lib/providers/embedly_patterns.def`.
 
 ### Implementing your own providers
 
