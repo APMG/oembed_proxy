@@ -19,50 +19,60 @@ RSpec.describe OembedProxy::Embedly do
     end
   end
 
-  it '.handles_url? google maps short code' do
-    ebdly = described_class.new(api_key)
-    expect(ebdly.handles_url?('http://goo.gl/maps/F0fc2')).to eql(true)
-    expect(ebdly.handles_url?('https://goo.gl/maps/F0fc2')).to eql(true)
-  end
-
-  it '.handles_url? google maps long url' do
-    url = 'https://www.google.com/maps/place/Dodd+Rd+%26+Smith+Ave+S,+West+St+Paul,+MN+55118/@44.9161109,-93.1017871,17z/data=!3m1!4b1!4m2!3m1!1s0x87f62b2bf353ff1f:0xfce33e5f2b7438b6'
-    ebdly = described_class.new(api_key)
-    expect(ebdly.handles_url?(url)).to eql(true)
-  end
-
-  it '.handles_url? new Facebook video URL' do
-    url = 'https://www.facebook.com/video.php?v=918613058159587'
-    ebdly = described_class.new(api_key)
-    expect(ebdly.handles_url?(url)).to eql(true)
-  end
-
-  it '.get_data handles Google Maps' do
-    json = '{"provider_url": "http://google.com/maps", "description": "Tornado Simulation Tornado Warning Track", "title": "Tornado Simulation Tornado Warning Track", "thumbnail_width": 504, "height": 450, "width": 600, "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fembed%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&url=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fviewer%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&image=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fthumbnail%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&key=947137f52db64271b6e122909bac3123&type=text%2Fhtml&schema=google\" width=\"600\" height=\"450\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>", "version": "1.0", "provider_name": "Google Maps", "thumbnail_url": "https://www.google.com/maps/d/thumbnail?mid=11YCN4-pcX1wLjPeT81JQm1-QbP8&hl=en_US", "type": "rich", "thumbnail_height": 520}'
-
-    emly = described_class.new(api_key)
-
-    expected_hash = JSON[json]
-
-    values = emly.get_data('https://maps.google.com/maps/ms?msid=214867082919963799901.0004bf28aee35e475fe57&msa=0')
-
-    # Test each key, so if something changes it is clearer.
-    expected_hash.each do |key, value|
-      expect(values[key]).to eql(value)
+  describe '#handles_url?' do
+    it 'handles google maps short code' do
+      ebdly = described_class.new(api_key)
+      expect(ebdly.handles_url?('http://goo.gl/maps/F0fc2')).to eql(true)
+      expect(ebdly.handles_url?('https://goo.gl/maps/F0fc2')).to eql(true)
     end
 
-    # Test the whole hash to see if anything has been added or changed.
-    expect(values).to eql(expected_hash)
+    it 'handles google maps long url' do
+      url = 'https://www.google.com/maps/place/Dodd+Rd+%26+Smith+Ave+S,+West+St+Paul,+MN+55118/@44.9161109,-93.1017871,17z/data=!3m1!4b1!4m2!3m1!1s0x87f62b2bf353ff1f:0xfce33e5f2b7438b6'
+      ebdly = described_class.new(api_key)
+      expect(ebdly.handles_url?(url)).to eql(true)
+    end
+
+    it 'handles new Facebook video URL' do
+      url = 'https://www.facebook.com/video.php?v=918613058159587'
+      ebdly = described_class.new(api_key)
+      expect(ebdly.handles_url?(url)).to eql(true)
+    end
+
+    it 'handles new Radio Public audio URL' do
+      url = 'https://play.radiopublic.com/brains-on-science-podcast-for-kids-dGOpNW'
+      ebdly = described_class.new(api_key)
+      expect(ebdly.handles_url?(url)).to eql(true)
+    end
   end
 
-  it '.get_data handles upstream errors' do
-    test_error_states 400, '400 Bad Request'
-    test_error_states 401, '401 Unauthorized'
-    test_error_states 403, '403 Forbidden'
-    test_error_states 404, '404 Not Found'
-    test_error_states 500, '500 Internal Server Error'
-    test_error_states 501, '501 Not Implemented'
-    test_error_states 503, '503 Service Unavailable'
+  describe '#get_data' do
+    it 'handles Google Maps' do
+      json = '{"provider_url": "http://google.com/maps", "description": "Tornado Simulation Tornado Warning Track", "title": "Tornado Simulation Tornado Warning Track", "thumbnail_width": 504, "height": 450, "width": 600, "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fembed%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&url=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fviewer%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&image=https%3A%2F%2Fwww.google.com%2Fmaps%2Fd%2Fthumbnail%3Fmid%3D11YCN4-pcX1wLjPeT81JQm1-QbP8%26hl%3Den_US&key=947137f52db64271b6e122909bac3123&type=text%2Fhtml&schema=google\" width=\"600\" height=\"450\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>", "version": "1.0", "provider_name": "Google Maps", "thumbnail_url": "https://www.google.com/maps/d/thumbnail?mid=11YCN4-pcX1wLjPeT81JQm1-QbP8&hl=en_US", "type": "rich", "thumbnail_height": 520}'
+
+      emly = described_class.new(api_key)
+
+      expected_hash = JSON[json]
+
+      values = emly.get_data('https://maps.google.com/maps/ms?msid=214867082919963799901.0004bf28aee35e475fe57&msa=0')
+
+      # Test each key, so if something changes it is clearer.
+      expected_hash.each do |key, value|
+        expect(values[key]).to eql(value)
+      end
+
+      # Test the whole hash to see if anything has been added or changed.
+      expect(values).to eql(expected_hash)
+    end
+
+    it 'handles upstream errors' do
+      test_error_states 400, '400 Bad Request'
+      test_error_states 401, '401 Unauthorized'
+      test_error_states 403, '403 Forbidden'
+      test_error_states 404, '404 Not Found'
+      test_error_states 500, '500 Internal Server Error'
+      test_error_states 501, '501 Not Implemented'
+      test_error_states 503, '503 Service Unavailable'
+    end
   end
 
   def test_error_states(code, message)

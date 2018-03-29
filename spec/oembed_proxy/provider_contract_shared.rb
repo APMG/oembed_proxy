@@ -3,7 +3,7 @@
 RSpec.shared_examples 'provider standard' do
   # klass is passed by the calling spec.
 
-  describe '.handles_url?' do
+  describe '#handles_url?' do
     # handled_url is passed by the calling spec.
 
     it 'exists' do
@@ -19,7 +19,7 @@ RSpec.shared_examples 'provider standard' do
     end
   end
 
-  describe '.get_data' do
+  describe '#get_data' do
     it 'exists' do
       expect(klass).to respond_to(:get_data)
     end

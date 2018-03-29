@@ -87,6 +87,10 @@ handler.register OembedProxy::AssociatedPress.new
 
 Once providers have been registered, calling `#handles_url?` and `#get_data`  on the handler will operate on the composition of the registered providers.
 
+### Using existing embed.ly providers
+
+[Embed.ly](http://embed.ly/) supports more than 400 content providers. Be sure to check the [embed.ly providers list](http://embed.ly/providers) prior to implementing your own custom provider. If your desired provider is already supported, simply add its URL to the bottom of the existing list `/lib/providers/embedly_patterns.def`.
+
 ### Implementing your own providers
 
 You are able to easily implement additional providers by creating an object which implements the `#handles_url?(url)` and `#get_data(url, other_params)` methods. Take a look at the existing provider classes for examples.
