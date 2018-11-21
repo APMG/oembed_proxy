@@ -8,6 +8,8 @@ RSpec.describe OembedProxy::FirstParty do
   before :each do
     stub_request(:get, 'http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
       .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw.json'), headers: {})
+    stub_request(:get, 'https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/playlist?list=PL8ufCCC-rPcvlfFE7SfPYHVI_YSzVuE0j')
+      .to_return(status: 200, body: fixture('youtube/PL8ufCCC-rPcvlfFE7SfPYHVI_YSzVuE0j.json'), headers: {})
     stub_request(:get, 'http://www.youtube.com/oembed?format=json&maxheight=30&maxwidth=20&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
       .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw-30x30.json'), headers: {})
     stub_request(:get, 'https://embed.spotify.com/oembed/?format=json&url=https://open.spotify.com/album/0R7CaOFFuPynpABahVNaMs')
@@ -46,6 +48,11 @@ RSpec.describe OembedProxy::FirstParty do
     it 'handles handles https YouTube short url' do
       fp = described_class.new
       expect(fp.handles_url?('https://youtu.be/_c4OgOb7S80')).to eql(true)
+    end
+
+    it 'handles handles https YouTube playlist' do
+      fp = described_class.new
+      expect(fp.handles_url?('https://www.youtube.com/playlist?list=PL8ufCCC-rPcvlfFE7SfPYHVI_YSzVuE0j')).to eql(true)
     end
 
     it 'handles handles http YouTube' do
