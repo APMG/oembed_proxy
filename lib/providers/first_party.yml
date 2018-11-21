@@ -1,6 +1,6 @@
 youtube:
   endpoint: "http://www.youtube.com/oembed"
-  pattern_list: ["#\\Ahttps?://(?:www\\.)?youtube\\.com/watch.+#i", "#\\Ahttps?://youtu\\.be/.+#i"]
+  pattern_list: ["#\\Ahttps?://(?:www\\.)?youtube\\.com/watch.+#i", "#\\Ahttps?://(?:www\\.)?youtube\\.com/playlist.+#i", "#\\Ahttps?://youtu\\.be/.+#i"]
 
 bliptv:
   endpoint: "http://blip.tv/oembed/"
