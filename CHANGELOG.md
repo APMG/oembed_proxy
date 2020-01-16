@@ -6,7 +6,7 @@
 
 * Add Datawrapper to supported embed.ly embeds
 * Updated Bundler requirement
-* Rubocop upgrade to 0.79
+* Rubocop upgrade to 0.78
 * Modernizing Ruby versions in build
 
 ## [`0.1.3`] (2018-04-24)
