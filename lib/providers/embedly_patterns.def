@@ -647,3 +647,6 @@
 #\Ahttp://bcove.me/.*#i
 #\Ahttps://play\.radiopublic\.com/.*#i
 #\Ahttps://www.qzzr.com/c/quiz/.*#i
+#\Ahttp://datawrapper.dwcdn.net/.*#i
+#\Ahttps://datawrapper.dwcdn.net/.*#i
+
