@@ -3,7 +3,7 @@
 module OembedProxy
   # Google Spreadsheet Fauxembed
   class GoogleSpreadsheet
-    GOOGLE_SPREADSHEET_REGEX = %r{\Ahttps://docs\.google\.com/spreadsheet.+}
+    GOOGLE_SPREADSHEET_REGEX = %r{\Ahttps://docs\.google\.com/spreadsheet.+}.freeze
 
     def handles_url?(url)
       !(url =~ GOOGLE_SPREADSHEET_REGEX).nil?

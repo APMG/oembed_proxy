@@ -7,7 +7,7 @@ module OembedProxy
   class Tableau
     using InactiveSupport
 
-    TABLEAU_REGEX = %r{\Ahttps://public\.tableau\.com/(?:profile/[^/]+/vizhome|views)/([^?]+)}
+    TABLEAU_REGEX = %r{\Ahttps://public\.tableau\.com/(?:profile/[^/]+/vizhome|views)/([^?]+)}.freeze
 
     def handles_url?(url)
       !TABLEAU_REGEX.match(url).nil?
@@ -26,7 +26,7 @@ module OembedProxy
         'provider_url' => 'https://tableau.com/',
         'width' => 500,
         'height' => 500,
-        'html' => <<~HTML
+        'html' => <<~HTML,
           <div id="#{div_id}"></div>
           <script type="text/javascript" src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
           <script type="text/javascript">

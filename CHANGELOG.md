@@ -1,5 +1,14 @@
 # oEmbed Proxy Changelog
 
+## [`0.2.0`] (2020-01-16)
+
+[`0.2.0`]: https://github.com/APMG/oembed_proxy/compare/v0.1.3...v0.2.0
+
+* Add Datawrapper to supported embed.ly embeds
+* Updated Bundler requirement
+* Rubocop upgrade to 0.78
+* Modernizing Ruby versions in build
+
 ## [`0.1.3`] (2018-04-24)
 
 [`0.1.3`]: https://github.com/APMG/oembed_proxy/compare/v0.1.2...v0.1.3
