@@ -1,0 +1,31 @@
+# frozen_string_literal: true
+
+require 'oembed_proxy/inactive_support'
+
+module OembedProxy
+  # NPR Fauxembed
+  class Npr
+    using InactiveSupport
+    NPR_REGEX = %r{https:\/\/.*\.npr\.org\/*}.freeze
+
+    def handles_url?(url)
+      !NPR_REGEX.match(url).nil?
+    end
+
+    def get_data(url, _other_params = {}) # rubocop:disable Metrics/MethodLength
+      return nil unless handles_url? url
+
+      {
+        'type' => 'rich',
+        'version' => '1.0',
+        'provider_name' => 'NPR',
+        'provider_url' => 'https://www.npr.org/',
+        'html' => <<~HTML,
+          <div class='sidechain-wrapper'>
+            <side-chain src="#{url}"></side-chain>
+          </div>
+        HTML
+      }
+    end
+  end
+end
