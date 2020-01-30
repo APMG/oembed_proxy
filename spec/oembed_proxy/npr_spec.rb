@@ -10,8 +10,6 @@ RSpec.describe OembedProxy::Npr do
 
   let(:simple_url) { 'https://apps.npr.org/liveblogs/20200203-iowa/embed.html' }
 
-
-
   describe '#handles_url?' do
     it 'returns true for a simple Npr URL' do
       dc = OembedProxy::Npr.new
