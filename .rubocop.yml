@@ -3,7 +3,7 @@ AllCops:
   Exclude:
     - 'bin/*'
 
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Metrics/BlockLength:
