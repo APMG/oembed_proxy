@@ -95,6 +95,13 @@ Once providers have been registered, calling `#handles_url?` and `#get_data`  on
 
 You are able to easily implement additional providers by creating an object which implements the `#handles_url?(url)` and `#get_data(url, other_params)` methods. Take a look at the existing provider classes for examples.
 
+### Note on the NPR 
+
+The NPR  embed is what we call a fauxembed.  NPR does not implement the oembed
+specification so we fake it by wrapping the embed url in a side-chain
+element. Then you must load the NPR Sidechain library on your site.  See
+[Sidechain](https://github.com/nprapps/sidechain).
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment. Before sending a pull request, you will want to run `bin/rubocop` to lint your work.
