@@ -10,6 +10,7 @@ require 'oembed_proxy/google_document'
 require 'oembed_proxy/google_mapsengine'
 require 'oembed_proxy/google_spreadsheet'
 require 'oembed_proxy/tableau'
+require 'oembed_proxy/npr'
 
 # Gem namespace
 module OembedProxy
