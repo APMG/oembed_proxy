@@ -90,6 +90,9 @@ documentcloud:
   endpoint: "https://www.documentcloud.org/api/oembed.json"
   pattern_list: ["#\\Ahttps?://www\\.documentcloud\\.org/documents?/.+#i"]
 
+
+# Facebook oEmbed documentation: https://developers.facebook.com/docs/plugins/oembed-endpoints/
+
 facebook-video:
   endpoint: "https://www.facebook.com/plugins/video/oembed.json"
   pattern_list: ["#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/video\\.php\\?id=.+#i", "#https://www\\.facebook\\.com/video.php\\?v=.+#i"]
