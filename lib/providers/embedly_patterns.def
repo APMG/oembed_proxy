@@ -600,13 +600,6 @@
 #\Ahttp://boston\.com/video.*#i
 #\Ahttp://www\.boston\.com/.*video.*#i
 #\Ahttp://boston\.com/.*video.*#i
-#\Ahttp://www\.facebook\.com/photo\.php.*#i
-#\Ahttp://www\.facebook\.com/video/video\.php.*#i
-#\Ahttp://www\.facebook\.com/v/.*#i
-#\Ahttps://www\.facebook\.com/photo\.php.*#i
-#\Ahttps://www\.facebook\.com/video/video\.php.*#i
-#\Ahttps://www\.facebook\.com/v/.*#i
-#\Ahttps://www\.facebook\.com/video.php\?v=.*#i
 #\Ahttp://cnbc\.com/id/.*\?.*video.*#i
 #\Ahttp://www\.cnbc\.com/id/.*\?.*video.*#i
 #\Ahttp://cnbc\.com/id/.*/play/1/video/.*#i

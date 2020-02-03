@@ -1,5 +1,19 @@
 # oEmbed Proxy Changelog
 
+## [`0.2.3`] (2020-02-03)
+
+[`0.2.3`]: https://github.com/APMG/oembed_proxy/compare/v0.2.2...v0.2.3
+
+* Move Facebook from Embed.ly to First Party.
+
+## [`0.2.2`] (2020-01-31)
+
+[`0.2.2`]: https://github.com/APMG/oembed_proxy/compare/v0.2.0...v0.2.2
+
+*Note: The 0.2.1 release had critical bugs and should not be used.*
+
+* Add a new Fauxembed for NPR Sidechain embeds.
+
 ## [`0.2.0`] (2020-01-16)
 
 [`0.2.0`]: https://github.com/APMG/oembed_proxy/compare/v0.1.3...v0.2.0

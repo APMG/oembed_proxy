@@ -62,32 +62,43 @@ RSpec.describe OembedProxy::FirstParty do
 
     it 'handles http instagram URL' do
       url = 'http://instagram.com/p/2JKROVoZpO/'
-      ebdly = described_class.new
-      expect(ebdly.handles_url?(url)).to eql(true)
+      fp = described_class.new
+      expect(fp.handles_url?(url)).to eql(true)
     end
 
     it 'handles https instagram URL' do
       url = 'https://instagram.com/p/2JKROVoZpO/'
-      ebdly = described_class.new
-      expect(ebdly.handles_url?(url)).to eql(true)
+      fp = described_class.new
+      expect(fp.handles_url?(url)).to eql(true)
     end
 
     it 'handles www instagram URL' do
       url = 'https://www.instagram.com/p/2JKROVoZpO/'
-      ebdly = described_class.new
-      expect(ebdly.handles_url?(url)).to eql(true)
+      fp = described_class.new
+      expect(fp.handles_url?(url)).to eql(true)
     end
 
     it 'handles http audio api URL' do
       url = 'apm-audio:/minnesota/news/features/2015/08/25/150825_gilbert_20150825'
-      ebdly = described_class.new
-      expect(ebdly.handles_url?(url)).to eql(true)
+      fp = described_class.new
+      expect(fp.handles_url?(url)).to eql(true)
     end
 
     it 'handles DocumentCloud URL' do
       url = 'https://www.documentcloud.org/documents/3901810-07242017-Minn-BCA-search-warrant-for-area.html'
-      ebdly = described_class.new
-      expect(ebdly.handles_url?(url)).to eql(true)
+      fp = described_class.new
+      expect(fp.handles_url?(url)).to eql(true)
+    end
+
+    it 'handles Facebook video URLs' do
+      fp = described_class.new
+      expect(fp.handles_url?('https://www.facebook.com/video.php?v=918613058159587')).to eql(true)
+      expect(fp.handles_url?('https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/')).to eql(true)
+    end
+
+    it 'handles Facebook post URLs' do
+      fp = described_class.new
+      expect(fp.handles_url?('https://www.facebook.com/TheCurrent/posts/10156676903452657')).to eql(true)
     end
   end
 
@@ -148,6 +159,27 @@ RSpec.describe OembedProxy::FirstParty do
 
       expect(values['type']).to eql('rich')
       expect(values['html']).to_not be_empty
+    end
+
+    it 'handles Facebook Video' do
+      stub_request(:get, 'https://www.facebook.com/plugins/video/oembed.json?format=json&url=https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/').to_return(status: 200, body: fixture('facebook/video_2431224630485642.json'), headers: {})
+
+      fp = described_class.new
+      values = fp.get_data('https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/')
+      expected_hash = {
+        'author_name' => 'Live from Here',
+        'author_url' => 'https://www.facebook.com/LivefromHereAPM/',
+        'height' => 280,
+        'html' => "<div id=\"fb-root\"></div>\n<script async=\"1\" defer=\"1\" crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v6.0\"></script><div class=\"fb-video\" data-href=\"https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/\"><blockquote cite=\"https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/\">The Origin of &quot;Ahoy!&quot;</a><p>Where did Chris&#039;s weekly call-and-response greeting come from? \n&quot;Ahoy!&quot; actually predates our radio show...</p>Posted by <a href=\"https://www.facebook.com/LivefromHereAPM/\">Live from Here</a> on Friday, October 11, 2019</blockquote></div>",
+        'provider_name' => 'Facebook',
+        'provider_url' => 'https://www.facebook.com',
+        'success' => true,
+        'type' => 'video',
+        'url' => 'https://www.facebook.com/LivefromHereAPM/videos/2431224630485642/',
+        'version' => '1.0',
+        'width' => 500,
+      }
+      expect(values).to eql(expected_hash)
     end
 
     it 'handles DocumentCloud' do

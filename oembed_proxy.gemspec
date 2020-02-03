@@ -7,8 +7,7 @@ require 'oembed_proxy/version'
 Gem::Specification.new do |spec|
   spec.name          = 'oembed_proxy'
   spec.version       = OembedProxy::VERSION
-  spec.authors       = ['William Johnston']
-  spec.email         = ['wjohnston@mpr.org']
+  spec.authors       = ['APM Digital Products Group']
 
   spec.summary       = 'Simple library to manage first party, embedly, and custom oembeds'
   # spec.description   = %q{TODO: Write a longer description or delete this line.}
