@@ -32,12 +32,6 @@ RSpec.describe OembedProxy::Embedly do
       expect(ebdly.handles_url?(url)).to eql(true)
     end
 
-    it 'handles new Facebook video URL' do
-      url = 'https://www.facebook.com/video.php?v=918613058159587'
-      ebdly = described_class.new(api_key)
-      expect(ebdly.handles_url?(url)).to eql(true)
-    end
-
     it 'handles new Radio Public audio URL' do
       url = 'https://play.radiopublic.com/brains-on-science-podcast-for-kids-dGOpNW'
       ebdly = described_class.new(api_key)
