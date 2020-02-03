@@ -95,8 +95,8 @@ documentcloud:
 
 facebook-video:
   endpoint: "https://www.facebook.com/plugins/video/oembed.json"
-  pattern_list: ["#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/video\\.php\\?id=.+#i", "#https://www\\.facebook\\.com/video.php\\?v=.+#i"]
+  pattern_list: ["#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/.+/videos/.+/#i", "#https://www\\.facebook\\.com/video\\.php\\?id=.+#i", "#https://www\\.facebook\\.com/video\\.php\\?v=.+#i"]
 
 facebook-post:
   endpoint: "https://www.facebook.com/plugins/post/oembed.json"
-  pattern_list: ["#https://www.facebook.com/.+/posts/.+#i", "#https://www.facebook.com/.+/posts/.+#i", "#https://www.facebook.com/.+/activity/.+#i", "#https://www.facebook.com/photo.php\\?fbid=.+#i", "#https://www.facebook.com/photos/.+#i", "#https://www.facebook.com/permalink.php\\?story_fbid=.+#i", "#https://www.facebook.com/media/set\\?set=.+#i", "#https://www.facebook.com/questions/.+#i", "#https://www.facebook.com/notes/.+/{note-url}/.+#i"]
+  pattern_list: ["#https://www\\.facebook\\.com/.+/posts/.+#i", "#https://www\\.facebook\\.com/.+/posts/.+#i", "#https://www\\.facebook\\.com/.+/activity/.+#i", "#https://www\\.facebook\\.com/photo\\.php\\?fbid=.+#i", "#https://www\\.facebook\\.com/photos/.+#i", "#https://www\\.facebook\\.com/permalink\\.php\\?story_fbid=.+#i", "#https://www\\.facebook\\.com/media/set\\?set=.+#i", "#https://www\\.facebook\\.com/questions/.+#i", "#https://www\\.facebook\\.com/notes/.+/.+/.+#i"]
