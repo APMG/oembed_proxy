@@ -1,6 +1,6 @@
 # oEmbed Proxy Changelog
 
-## [`0.2.3`] (2020-01-16)
+## [`0.2.3`] (2020-02-03)
 
 [`0.2.3`]: https://github.com/APMG/oembed_proxy/compare/v0.2.2...v0.2.3
 
