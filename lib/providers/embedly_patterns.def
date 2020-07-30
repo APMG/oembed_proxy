@@ -283,7 +283,6 @@
 #\Ahttps?://(.+\.)?polldaddy\.com/poll/.*#i
 #\Ahttps?://polldaddy\.com/poll/.*#i
 #\Ahttps?://(.+\.)?polldaddy\.com/.*#i
-#\Ahttp://poll\.fm/.*#i
 #\Ahttp://answers\.polldaddy\.com/poll/.*#i
 #\Ahttp://www\.5min\.com/Video/.*#i
 #\Ahttp://www\.howcast\.com/videos/.*#i
