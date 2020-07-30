@@ -1,5 +1,11 @@
 # oEmbed Proxy Changelog
 
+## [`0.2.4`] (2020-07-30)
+
+[`0.2.4`]: https://github.com/APMG/oembed_proxy/compare/v0.2.3...v0.2.4
+
+* Move poll.fm from Embed.ly to First Party.
+
 ## [`0.2.3`] (2020-02-03)
 
 [`0.2.3`]: https://github.com/APMG/oembed_proxy/compare/v0.2.2...v0.2.3

@@ -100,6 +100,11 @@ RSpec.describe OembedProxy::FirstParty do
       fp = described_class.new
       expect(fp.handles_url?('https://www.facebook.com/TheCurrent/posts/10156676903452657')).to eql(true)
     end
+
+    it 'handles poll.fm URLs' do
+      fp = described_class.new
+      expect(fp.handles_url?('https://poll.fm/123')).to eql(true)
+    end
   end
 
   describe '#get_data' do
@@ -195,6 +200,22 @@ RSpec.describe OembedProxy::FirstParty do
         'provider_name' => 'DocumentCloud',
         'provider_url' => 'https://www.documentcloud.org',
         'cache_age' => 300,
+      }
+      expect(values).to eql(expected_hash)
+    end
+
+    it 'returns data for a poll.fm poll' do
+      stub_request(:get, 'https://api.crowdsignal.com/oembed?format=json&url=https://poll.fm/123').to_return(status: 200, body: fixture('crowdsignal/pollfm_123.json'), headers: {})
+
+      fp = described_class.new
+      values = fp.get_data('https://poll.fm/123')
+      expected_hash = {
+        'type' => 'rich',
+        'version' => '1.0',
+        'provider_name' => 'Crowdsignal',
+        'provider_url' => 'https://crowdsignal.com',
+        'title' => 'Which is cooler: Snakes or Spiders?',
+        'html' => '<script type="text/javascript" charset="utf-8" src="https://secure.polldaddy.com/p/123.js"></script><noscript><iframe src="https://poll.fm/123/embed" frameborder="0" class="cs-iframe-embed"></iframe></noscript>',
       }
       expect(values).to eql(expected_hash)
     end

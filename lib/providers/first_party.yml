@@ -58,6 +58,10 @@ polldaddy:
   endpoint: "https://polldaddy.com/oembed/"
   pattern_list: ["#\\Ahttps?://(?:[^.]+\\.)?polldaddy\\.com/.+#i"]
 
+crowdsignal:
+  endpoint: "https://api.crowdsignal.com/oembed"
+  pattern_list: ["#\\Ahttps?://poll.fm/.+#i"]
+
 funnyordie:
   endpoint: "http://www.funnyordie.com/oembed"
   pattern_list: ["#\\Ahttps?://(?:www\\.)?funnyordie\\.com/videos/.+#i"]
