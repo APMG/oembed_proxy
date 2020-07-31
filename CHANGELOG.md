@@ -1,5 +1,17 @@
 # oEmbed Proxy Changelog
 
+## [`0.2.5`] (2020-07-30)
+
+[`0.2.5`]: https://github.com/APMG/oembed_proxy/compare/v0.2.4...v0.2.5
+
+This release contains no code changes.
+The gem published for 0.2.4 contained files missing read-permissions
+for "group" and "other", which could prevent loading of those files
+in environments where gems are installed by a user who is not the
+effective user at gem load time.
+
+* Fix file permissions on `lib/oembed_proxy/*.rb` for published gem.
+
 ## [`0.2.4`] (2020-07-30)
 
 [`0.2.4`]: https://github.com/APMG/oembed_proxy/compare/v0.2.3...v0.2.4
