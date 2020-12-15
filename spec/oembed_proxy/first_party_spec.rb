@@ -6,11 +6,11 @@ RSpec.describe OembedProxy::FirstParty do
   let(:klass) { described_class.new }
 
   before :each do
-    stub_request(:get, 'http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
+    stub_request(:get, 'https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
       .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw.json'), headers: {})
     stub_request(:get, 'https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/playlist?list=PL8ufCCC-rPcvlfFE7SfPYHVI_YSzVuE0j')
       .to_return(status: 200, body: fixture('youtube/PL8ufCCC-rPcvlfFE7SfPYHVI_YSzVuE0j.json'), headers: {})
-    stub_request(:get, 'http://www.youtube.com/oembed?format=json&maxheight=30&maxwidth=20&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
+    stub_request(:get, 'https://www.youtube.com/oembed?format=json&maxheight=30&maxwidth=20&url=https://www.youtube.com/watch?v=9jK-NcRmVcw')
       .to_return(status: 200, body: fixture('youtube/9jK-NcRmVcw-30x30.json'), headers: {})
     stub_request(:get, 'https://embed.spotify.com/oembed/?format=json&url=https://open.spotify.com/album/0R7CaOFFuPynpABahVNaMs')
       .to_return(status: 200, body: fixture('spotify/album-0R7CaOFFuPynpABahVNaMs.json'), headers: {})
@@ -233,7 +233,7 @@ RSpec.describe OembedProxy::FirstParty do
 
     it 'handles invalid json response' do
       error_url = 'https://www.youtube.com/watch?v=200'
-      stub_request(:get, 'http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=200').to_return(status: 200, body: 'akljdfhlkjkasdfkhkskskk kskfkhksf kskkkk;kfhks;skfkk()', headers: {})
+      stub_request(:get, 'https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=200').to_return(status: 200, body: 'akljdfhlkjkasdfkhkskskk kskfkhksf kskkkk;kfhks;skfkk()', headers: {})
 
       fp = described_class.new
       expect(fp.get_data(error_url)).to be_nil
@@ -241,7 +241,7 @@ RSpec.describe OembedProxy::FirstParty do
 
     it 'handles redirects' do
       error_url = 'https://www.youtube.com/watch?v=200'
-      stub_request(:get, 'http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=200').to_return(status: 301, body: '', headers: { location: 'https://oembed.example.com/' })
+      stub_request(:get, 'https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=200').to_return(status: 301, body: '', headers: { location: 'https://oembed.example.com/' })
       stub_request(:get, 'https://oembed.example.com/').to_return(status: 200, body: '', headers: {})
 
       fp = described_class.new
@@ -251,7 +251,7 @@ RSpec.describe OembedProxy::FirstParty do
 
   def test_error_states(code, message)
     error_url = "https://www.youtube.com/watch?v=#{code}"
-    stub_request(:get, "http://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=#{code}").to_return(status: code, body: '', headers: {})
+    stub_request(:get, "https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=#{code}").to_return(status: code, body: '', headers: {})
 
     fp = described_class.new
     expect { fp.get_data(error_url) }.to raise_error(OembedProxy::OembedException, message)
