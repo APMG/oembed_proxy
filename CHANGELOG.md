@@ -1,5 +1,11 @@
 # oEmbed Proxy Changelog
 
+## [`0.2.6`] (2020-12-15)
+
+[`0.2.5`]: https://github.com/APMG/oembed_proxy/compare/v0.2.5...v0.2.6
+
+* Add https to youtube and vimeo provider urls.
+
 ## [`0.2.5`] (2020-07-30)
 
 [`0.2.5`]: https://github.com/APMG/oembed_proxy/compare/v0.2.4...v0.2.5

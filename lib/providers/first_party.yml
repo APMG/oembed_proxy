@@ -1,5 +1,5 @@
 youtube:
-  endpoint: "http://www.youtube.com/oembed"
+  endpoint: "https://www.youtube.com/oembed"
   pattern_list: ["#\\Ahttps?://(?:www\\.)?youtube\\.com/watch.+#i", "#\\Ahttps?://(?:www\\.)?youtube\\.com/playlist.+#i", "#\\Ahttps?://youtu\\.be/.+#i"]
 
 bliptv:
@@ -7,7 +7,7 @@ bliptv:
   pattern_list: ["#\\Ahttps?://blip\\.tv/.+#i"]
 
 vimeo:
-  endpoint: "http://vimeo.com/api/oembed.json"
+  endpoint: "https://vimeo.com/api/oembed.json"
   pattern_list: ["#\\Ahttps?://(?:www\\.)?vimeo\\.com/.+#i"]
 
 dailymotion:
