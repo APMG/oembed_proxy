@@ -1,6 +1,6 @@
 # OembedProxy
 
-[![Build Status](https://travis-ci.com/APMG/oembed_proxy.svg?branch=master)](https://travis-ci.com/APMG/oembed_proxy)
+[![Build Status](https://travis-ci.com/APMG/oembed_proxy.svg?branch=master)](https://app.travis-ci.com/github/APMG/oembed_proxy)
 
 Library to manage multiple oEmbed providers, including officially supported oEmbeds, custom implemented "fauxembeds", and Embed.ly providers.
 
