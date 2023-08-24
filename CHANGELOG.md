@@ -1,5 +1,9 @@
 # oEmbed Proxy Changelog
 
+## [`0.3`] (2023-08-24)
+
+[`0.3`]: https://github.com/APMG/oembed_proxy/compare/v0.2.6...v0.3
+
 ## [`0.2.6`] (2020-12-15)
 
 [`0.2.6`]: https://github.com/APMG/oembed_proxy/compare/v0.2.5...v0.2.6
