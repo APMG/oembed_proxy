@@ -5,6 +5,11 @@ require 'bundler/setup'
 require 'pry'
 require 'webmock/rspec'
 
+require 'simplecov'
+SimpleCov.start do
+  enable_coverage :branch
+end
+
 require 'oembed_proxy'
 
 require 'support/fixture_loader'
