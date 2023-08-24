@@ -66,13 +66,27 @@ module OembedProxy
       case res
       when Net::HTTPSuccess
         JSON[res.body]
-      when Net::HTTPMovedPermanently, Net::HTTPFound
-        fetch(URI(res['location']), times_recursed: (times_recursed + 1))
+      when Net::HTTPRedirection, Net::HTTPFound
+        fetch(redirect_location(uri, res['location']), times_recursed: (times_recursed + 1))
       else
         raise OembedException, (ERROR_CLASS_MAPPING[res.class] || "Unknown response: #{res.class}")
       end
     rescue JSON::ParserError
       return nil # rubocop:disable Style/RedundantReturn
+    end
+
+    def redirect_location(original_uri, new_location)
+      # Absolute URL
+      return URI(new_location) if new_location.start_with?('http')
+
+      # Relative path starting at root
+      return URI("#{original_uri.scheme}://#{original_uri.host}#{new_location}") if new_location.start_with?('/')
+
+      # Relative path starting at directory of original request (yuck)
+
+      base_path = Pathname.new(original_uri.path).parent.to_s # Get the current directory
+      base_path = '' if base_path == '/' # Special case, avoiding double slash in URL
+      URI("#{original_uri.scheme}://#{original_uri.host}#{base_path}/#{new_location}")
     end
 
     def request_builder(uri)

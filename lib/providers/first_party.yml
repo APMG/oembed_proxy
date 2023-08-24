@@ -83,7 +83,7 @@ instagram:
   pattern_list: ["#\\Ahttps?://(?:www\\.)?instagr(?:\\.am|am\\.com)/p/.+#i"]
 
 spotify:
-  endpoint: "https://embed.spotify.com/oembed/"
+  endpoint: "https://embed.spotify.com/oembed"
   pattern_list: ["#\\Ahttps?://(?:open|play)\\.spotify\\.com/.+#i"]
 
 audio-api:
