@@ -4,6 +4,9 @@
 
 [`0.3`]: https://github.com/APMG/oembed_proxy/compare/v0.2.6...v0.3
 
+* Update Spotify API URI
+* Updated redirect handling to take more obscure types of redirects into account.
+
 ## [`0.2.6`] (2020-12-15)
 
 [`0.2.6`]: https://github.com/APMG/oembed_proxy/compare/v0.2.5...v0.2.6
