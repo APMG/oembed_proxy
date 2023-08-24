@@ -65,6 +65,14 @@ RSpec.describe OembedProxy::FirstParty do
         expect(data['title']).to eq('Land Speed Record')
       end
 
+      it 'follows 308 redirects' do
+        stub_request(:get, redirected_url).to_return(status: 308, body: final_url, headers: { 'location' => final_url })
+
+        fp = described_class.new
+        data = fp.get_data(embed_url)
+        expect(data['title']).to eq('Land Speed Record')
+      end
+
       it 'follows relative redirects with a slash' do
         stub_request(:get, redirected_url).to_return(status: 301, body: final_url, headers: { 'location' => '/oembed?format=json&url=https://open.spotify.com/album/0R7CaOFFuPynpABahVNaMs' })
 
@@ -201,10 +209,10 @@ RSpec.describe OembedProxy::FirstParty do
 
     describe '#get_data' do
       it 'returns rich type' do
+        # If we define the ?beta=true flag for instagram, they return a rich type.
         stub_request(:get, 'https://api.instagram.com/oembed?beta=true&format=json&url=http://instagram.com/p/viyEC5IZr4/')
           .to_return(status: 200, body: fixture('instagram/viyEC5IZr4.json'), headers: {})
 
-        # If we define the ?beta=true flag for instagram, they return a rich type.
         fp = described_class.new
 
         values = fp.get_data('http://instagram.com/p/viyEC5IZr4/')
