@@ -6,13 +6,13 @@ module OembedProxy
   # NPR Fauxembed
   class Npr
     using InactiveSupport
-    NPR_REGEX = %r{\Ahttps:\/\/(?:[a-z0-9-]+\.)+npr\.org\/.+}.freeze
+    NPR_REGEX = %r{\Ahttps://(?:[a-z0-9-]+\.)+npr\.org/.+}
 
     def handles_url?(url)
       !NPR_REGEX.match(url).nil?
     end
 
-    def get_data(url, _other_params = {}) # rubocop:disable Metrics/MethodLength
+    def get_data(url, _other_params = {})
       return nil unless handles_url? url
 
       escaped_url = url.gsub('"', '&quot;')

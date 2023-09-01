@@ -58,7 +58,7 @@ module OembedProxy
 
     MAX_REDIRECTS = 10
 
-    def fetch(uri, times_recursed: 0) # rubocop:disable Metrics/MethodLength
+    def fetch(uri, times_recursed: 0)
       raise OembedException, '500 Internal Server Error' if times_recursed > MAX_REDIRECTS
 
       res = request_builder(uri)

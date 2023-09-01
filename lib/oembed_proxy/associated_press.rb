@@ -3,7 +3,7 @@
 module OembedProxy
   # Associated Press Interactives Fauxembed
   class AssociatedPress
-    AP_REGEX = %r{\Ahttps?:\/\/(?:hosted\.ap\.org\/interactives|interactives\.ap\.org)\/.+}.freeze
+    AP_REGEX = %r{\Ahttps?://(?:hosted\.ap\.org/interactives|interactives\.ap\.org)/.+}
 
     def handles_url?(url)
       !AP_REGEX.match(url).nil?
@@ -20,7 +20,9 @@ module OembedProxy
       oembed['provider_name'] = 'Associated Press'
       oembed['provider_url'] = 'http://www.ap.org/'
 
-      oembed['html'] = '<iframe class="ap-embed" width="100%" height="600" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="' + url + '"></iframe>'
+      oembed['html'] = <<~HTML.chomp
+        <iframe class="ap-embed" width="100%" height="600" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="#{url}"></iframe>
+      HTML
       oembed['width'] = 600
       oembed['height'] = 600
 

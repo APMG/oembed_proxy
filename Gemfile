@@ -5,7 +5,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 group :development do
-  gem 'rubocop', '~> 0.78'
+  gem 'bundler', '~> 2.0'
+  gem 'rake'
+  gem 'rspec'
+  gem 'rubocop', '~> 1.0'
 end
 
 group :test do

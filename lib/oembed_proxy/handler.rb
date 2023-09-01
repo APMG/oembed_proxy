@@ -17,7 +17,7 @@ module OembedProxy
 
     def get_data(url, other_params = {})
       provider = provider_for_url(url)
-      return provider.get_data(url, other_params) unless provider.nil?
+      provider&.get_data(url, other_params)
     end
 
     private

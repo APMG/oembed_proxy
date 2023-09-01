@@ -3,7 +3,7 @@
 module OembedProxy
   # Google Apps Fusiontable Map Fauxembeds
   class FusiontableMap
-    FUSIONTABLE_REGEX = %r{\Ahttps://www\.google\.com/fusiontables.+}.freeze
+    FUSIONTABLE_REGEX = %r{\Ahttps://www\.google\.com/fusiontables.+}
 
     def handles_url?(url)
       !(url =~ FUSIONTABLE_REGEX).nil?
@@ -20,7 +20,9 @@ module OembedProxy
       oembed['provider_name'] = 'Google Apps Fusion Tables'
       oembed['provider_url'] = 'https://www.google.com/drive/apps.html#fusiontables'
 
-      oembed['html'] = '<iframe class="google-map" width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="' + url + '"></iframe>'
+      oembed['html'] = <<~HTML.chomp
+        <iframe class="google-map" width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="#{url}"></iframe>
+      HTML
       oembed['width'] = 500
       oembed['height'] = 500
 

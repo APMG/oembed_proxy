@@ -16,7 +16,7 @@ RSpec.describe OembedProxy::FirstParty do
 
     it 'returns false for non-string argument' do
       fp = described_class.new
-      expect(fp.handles_url?('https://www.youtube.com/watch?v=9jK-NcRmVcw'.to_sym)).to eql(true)
+      expect(fp.handles_url?(:'https://www.youtube.com/watch?v=9jK-NcRmVcw')).to eql(true)
     end
   end
 
